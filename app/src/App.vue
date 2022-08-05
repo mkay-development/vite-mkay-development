@@ -3,6 +3,7 @@
     <header class="mx-auto max-w-5xl px-2 py-2">
       <header-general></header-general>
     </header>
+    <nav-content class="mx-auto max-w-5x px-2 py-2 bg-white"></nav-content>
     <main class="mx-auto max-w-5xl bg-white px-2 py-2 mt-2 min-h-screen">
       <router-view></router-view>
     </main>
@@ -11,23 +12,19 @@
     </footer>
   </div>
 </template>
-<script>
-import header from "./components/header.vue";
-import footer from "./components/footer.vue";
+<script setup>
+import headerGeneral from "./components/header.vue";
+import footerGeneral from "./components/footer.vue";
+import navContent from "./components/nav/content.vue";
+import { useRoute } from "vue-router";
 
 import "./tailwind.css";
-export default {
-  name: "App",
-  components: {
-    "header-general": header,
-    "footer-general": footer,
-  },
-  watch: {
-    $route: function(){
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-  }
-};
+import { watch } from "vue";
+let route = useRoute();
+
+watch(route, function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 </script>
 
 <style lang="less">

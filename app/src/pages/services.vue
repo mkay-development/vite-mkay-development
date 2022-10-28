@@ -1,5 +1,5 @@
 <template>
-  <div>Kunden</div>
+  <div>Services</div>
   <div class="grid grid-cols-6 gap-3">
     <div class="col-span-6 md:col-span-2">
       <section class="card">
@@ -49,7 +49,7 @@ let kunden = ref([{
 }]);
 
 breadcrumbStore.add({
-  link: "/kunden",
-  label: "Kunden",
+  link: "/services",
+  label: "Services",
 });
 </script>

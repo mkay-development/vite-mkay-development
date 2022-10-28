@@ -1,13 +1,13 @@
 <template>
   <div class="grid grid-cols-6 gap-3">
-    <div class="col-span-6 md:col-span-2 my-10">
+    <div class="col-span-6 md:col-span-2 md:my-10">
       <img
         src="https://avatars.githubusercontent.com/u/20771653?v=4"
         alt="Profilebild Jonathan"
         class="w-32 rounded-full mx-auto"
       />
     </div>
-    <div class="col-span-6 md:col-span-4 my-10">
+    <div class="col-span-6 md:col-span-4 md:my-10">
       <h2 class="font-bold mt-4">Jonathan Martz</h2>
       <p class="">
         Als Fullstack Webentwickler entwickel ich vorallem mit PHP & JS. <br />

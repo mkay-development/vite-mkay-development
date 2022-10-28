@@ -55,7 +55,7 @@
         />
         <h2 class="px-2 mt-2 font-bold">Mail Verwaltung</h2>
         <p class="px-2">
-          Wir hosten deine Webseite auf modernen Servern bei Hetzner, einem
+          Wir hosten deine Emails auf modernen Servern bei Hetzner, einem
           führenden Deutschen Hoster. Dort verwalten wir deine Emails nach
           deinen Wünschen und unterstützen dich bei der Kommunikation.
         </p>

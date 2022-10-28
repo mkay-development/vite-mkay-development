@@ -22,7 +22,7 @@ library.add(faEdit, faPlus, faBars, faTimes);
 import plausible from "./plugins/plausible";
 
 const plausibleOptions = {
-  domain: "www.mkay-web-dev",
+  domain: "www.mkay-development.de",
   apiHost: "https://tracking.jmartz.gmbh",
   hashMode: false,
   trackLocalhost: false,

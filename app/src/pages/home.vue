@@ -16,52 +16,34 @@
         Webseiten für kleine Unternehmen.
       </p>
     </div>
-    <div class="col-span-6 md:col-span-2">
+    <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
       <section class="card border border-black bg-gray-400">
         <img
-          src="https://picsum.photos/320/180"
+          :src="'https://admin.mkay-development.de/api/files/'+item['@collectionId']+'/'+item.id+'/'+item.media+'?thumb=160x90'"
           class="border-b border-b-black w-full"
           alt=""
         />
-        <h2 class="px-2 mt-2 font-bold">Web Entwicklung</h2>
+        <h2 class="px-2 mt-2 font-bold">{{ item.headline }}</h2>
         <p class="px-2">
-          Wir entwickeln eine responsive Webseite für sie die ihren Ansprüchen
-          genügt. Dabei setzen wir auf moderne Technologien wie VueJs im
-          Frontend und Laravel im Backend.
-        </p>
-      </section>
-    </div>
-    <div class="col-span-6 md:col-span-2">
-      <section class="card border border-black bg-gray-400">
-        <img
-          src="https://picsum.photos/320/180"
-          class="border-b border-b-black w-full"
-          alt=""
-        />
-        <h2 class="px-2 mt-2 font-bold">Web Hosting</h2>
-        <p class="px-2">
-          Wir hosten deine Webseite auf modernen Servern bei Hetzner, einem
-          führenden Deutschen Hoster. Dabei setzen wir auf moderne Cloud Server
-          mit modernen Websoftware wie Nginx und Mysql.
-        </p>
-      </section>
-    </div>
-    <div class="col-span-6 md:col-span-2">
-      <section class="card border border-black bg-gray-400">
-        <img
-          src="https://picsum.photos/320/180"
-          class="border-b border-b-black w-full"
-          alt=""
-        />
-        <h2 class="px-2 mt-2 font-bold">Mail Verwaltung</h2>
-        <p class="px-2">
-          Wir hosten deine Emails auf modernen Servern bei Hetzner, einem
-          führenden Deutschen Hoster. Dort verwalten wir deine Emails nach
-          deinen Wünschen und unterstützen dich bei der Kommunikation.
+          {{ item.desc }}
         </p>
       </section>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useBackendStore } from "../store/backend";
+import { ref } from "vue";
+let store = useBackendStore();
+let items = ref([]);
+
+let client = store.init();
+
+// fetch a paginated records list
+const resultList = client.records.getList("services", 1, 50, {});
+
+resultList.then(function (data) {
+  items.value = data.items;
+});
+</script>

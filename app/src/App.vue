@@ -22,7 +22,7 @@ import { useRoute } from "vue-router";
 import { useNavStore } from "./store/nav";
 
 import "./tailwind.css";
-import { watch } from "vue";
+import { watch, onMounted} from "vue";
 import { storeToRefs } from "pinia";
 import { useBreadcrumbStore } from "@/store/breadcrumb";
 

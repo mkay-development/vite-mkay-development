@@ -1,55 +1,71 @@
 <template>
-  <div>Kunden</div>
+  <h2 class="text-lg font-bold mb-2 mx-2">Kunden</h2>
   <div class="grid grid-cols-6 gap-3">
-    <div class="col-span-6 md:col-span-2">
-      <section class="card">
-        <img src="https://picsum.photos/320/180" alt="" />
-        <h2 class="px-2 mt-2 font-bold">Test</h2>
+    <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
+      <section class="card border border-black rounded-lg px-2 py-2">
+        <a :href="item.link" target="_blank">
+          <img
+            :src="
+              'https://admin.mkay-development.de/api/files/' +
+              item['@collectionId'] +
+              '/' +
+              item.id +
+              '/' +
+              item.media +
+              '?thumb=160x90'
+            "
+            alt=""
+          />
+        </a>
+        <h2 class="px-2 mt-2 font-bold">{{ item.name }}</h2>
         <p class="px-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis id
-          molestiae odio veniam, accusantium architecto temporibus doloremque
-          consequatur commodi quo nisi ipsam, incidunt facilis sed maiores.
-          Fugiat necessitatibus accusantium sit!
+          {{ item.desc }}
         </p>
-      </section>
-    </div>
-    <div class="col-span-6 md:col-span-2">
-      <section class="card">
-        <img src="https://picsum.photos/320/180" alt="" />
-        <h2 class="px-2 mt-2 font-bold">Test</h2>
-        <p class="px-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis id
-          molestiae odio veniam, accusantium architecto temporibus doloremque
-          consequatur commodi quo nisi ipsam, incidunt facilis sed maiores.
-          Fugiat necessitatibus accusantium sit!
-        </p>
-      </section>
-    </div>
-    <div class="col-span-6 md:col-span-2">
-      <section class="card">
-        <img src="https://picsum.photos/320/180" alt="" />
-        <h2 class="px-2 mt-2 font-bold">Test</h2>
-        <p class="px-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis id
-          molestiae odio veniam, accusantium architecto temporibus doloremque
-          consequatur commodi quo nisi ipsam, incidunt facilis sed maiores.
-          Fugiat necessitatibus accusantium sit!
-        </p>
+        <div class="tags mt-3">
+          <ul class="flex">
+            <li
+              v-for="(skill, index) in item.skills"
+              class="bg-gray-50 border border-gray-300 rounded-lg px-2 py-2 mx-2"
+            >
+              {{ skill }}
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { useBackendStore } from "../store/backend";
+import { onMounted, ref } from "vue";
 import { useBreadcrumbStore } from "@/store/breadcrumb";
+
+let store = useBackendStore();
+let items = ref([]);
 let breadcrumbStore = useBreadcrumbStore();
-let kunden = ref([{
-  pic: ''
-}]);
+let kunden = ref([
+  {
+    pic: "",
+  },
+]);
 
 breadcrumbStore.add({
   link: "/kunden",
   label: "Kunden",
 });
+
+onMounted(function () {
+  load();
+});
+
+let load = function () {
+  let client = store.init();
+
+  const result = client.records.getList("kunden", 1, 50, {});
+
+  result.then(function (data) {
+    items.value = data.items.reverse();
+  });
+};
 </script>

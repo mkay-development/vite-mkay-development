@@ -48,11 +48,13 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useMessageStore } from "@/store/messages";
+import { useRouter} from 'vue-router'
 
 let email = ref("");
 let password = ref("");
 let passwordConfirm = ref("");
 let store = useMessageStore();
+let router = useRouter();
 
 let register = function () {
   fetch("https://admin.mkay-development.de/api/users", {
@@ -72,9 +74,12 @@ let register = function () {
     .then(function (data) {
       if (data.code == 400) {
         store.add({
-          message: "Es gibt bereits einen Benutzer mit dieser Email Adresse",
+          message: "Es gab einen Fehler bei der Anfrage",
           status: "warning",
         });
+      }
+      else {
+        router.push('/login');
       }
     });
 };

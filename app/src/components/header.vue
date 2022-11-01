@@ -16,11 +16,13 @@
         <li>
           <router-link to="/impressum">Impressum</router-link>
         </li>
-        <li v-if="userIsLoggedIn">
+        <li v-if="isLoggedIn">
           <router-link to="/user/profile"><fa icon="user" /></router-link>
         </li>
-        <li v-if="!userIsLoggedIn"><router-link to="/account"><fa icon="user" /></router-link></li>
-        <li v-if="userIsLoggedIn">
+        <li v-if="!isLoggedIn">
+          <router-link to="/login"><fa icon="user" /></router-link>
+        </li>
+        <li v-if="isLoggedIn">
           <router-link to="/user/logout"
             ><fa icon="right-from-bracket"
           /></router-link>
@@ -40,6 +42,7 @@
 </template>
 
 <script setup>
+import { useUserStore } from "@/store/user";
 import { useNavStore } from "@/store/nav";
 import { useWindowSize } from "@vueuse/core";
 import { storeToRefs } from "pinia";
@@ -49,11 +52,7 @@ let store = useNavStore();
 let { width } = useWindowSize();
 let { open } = storeToRefs(store);
 let userIsLoggedIn = ref(false);
+let userStore = useUserStore();
 
-onMounted(function () {
-  let userid = localStorage.getItem("userid");
-  if (userid) {
-    userIsLoggedIn.value = true;
-  }
-});
+let { isLoggedIn } = storeToRefs(userStore);
 </script>

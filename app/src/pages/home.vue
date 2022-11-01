@@ -9,7 +9,7 @@
     </div>
     <div class="col-span-6 md:col-span-4 md:my-10">
       <h2 class="font-bold mt-4 text-center md:text-left">Jonathan Martz</h2>
-      <p class="">
+      <p class="text-center md:text-left">
         Als Fullstack Webentwickler entwickel ich vorallem mit PHP & JS. <br />
         Ich habe meine Erfahrung vorallem im Ecommerce gesammelt wo ich
         Onlineshops erstellt und danach betreut habe. Nun entwickel ich
@@ -40,7 +40,6 @@ let items = ref([]);
 
 let client = store.init();
 
-// fetch a paginated records list
 const resultList = client.records.getList("services", 1, 50, {});
 
 resultList.then(function (data) {

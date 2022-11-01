@@ -28,6 +28,7 @@ import { watch, onMounted} from "vue";
 import { storeToRefs } from "pinia";
 import { useBreadcrumbStore } from "@/store/breadcrumb";
 import { useMessageStore } from "./store/messages";
+import { useUserStore } from "./store/user";
 
 let route = useRoute();
 let store = useNavStore();
@@ -36,6 +37,12 @@ let { items } = storeToRefs(breadcrumbStore);
 
 let messageStore = useMessageStore();
 let { messages } = storeToRefs(messageStore);
+
+let userStore = useUserStore();
+
+onMounted(function(){
+  userStore.init();
+});
 
 watch(route, function () {
   window.scrollTo({ top: 0, behavior: "smooth" });

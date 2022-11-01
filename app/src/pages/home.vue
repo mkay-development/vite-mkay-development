@@ -8,7 +8,7 @@
       />
     </div>
     <div class="col-span-6 md:col-span-4 md:my-10">
-      <h2 class="font-bold mt-4">Jonathan Martz</h2>
+      <h2 class="font-bold mt-4 text-center md:text-left">Jonathan Martz</h2>
       <p class="">
         Als Fullstack Webentwickler entwickel ich vorallem mit PHP & JS. <br />
         Ich habe meine Erfahrung vorallem im Ecommerce gesammelt wo ich

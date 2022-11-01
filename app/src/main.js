@@ -12,12 +12,23 @@ import {
   faEdit,
   faBars,
   faTimes,
+  faTrash,
+  faUser,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* import font awesome icon component */
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faEdit, faPlus, faBars, faTimes);
+library.add(
+  faEdit,
+  faPlus,
+  faBars,
+  faTimes,
+  faUser,
+  faRightFromBracket,
+  faTrash
+);
 
 import plausible from "./plugins/plausible";
 

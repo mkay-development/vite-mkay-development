@@ -16,6 +16,15 @@
         <li>
           <router-link to="/impressum">Impressum</router-link>
         </li>
+        <li v-if="userIsLoggedIn">
+          <router-link to="/user/profile"><fa icon="user" /></router-link>
+        </li>
+        <li v-if="!userIsLoggedIn"><router-link to="/account"><fa icon="user" /></router-link></li>
+        <li v-if="userIsLoggedIn">
+          <router-link to="/user/logout"
+            ><fa icon="right-from-bracket"
+          /></router-link>
+        </li>
         <li>
           <router-link to="/kontakt" class="border border-white px-2 py-2"
             >Anfrage stellen</router-link
@@ -34,8 +43,17 @@
 import { useNavStore } from "@/store/nav";
 import { useWindowSize } from "@vueuse/core";
 import { storeToRefs } from "pinia";
+import { onMounted, ref } from "vue";
 
 let store = useNavStore();
-let { width, height } = useWindowSize();
+let { width } = useWindowSize();
 let { open } = storeToRefs(store);
+let userIsLoggedIn = ref(false);
+
+onMounted(function () {
+  let userid = localStorage.getItem("userid");
+  if (userid) {
+    userIsLoggedIn.value = true;
+  }
+});
 </script>

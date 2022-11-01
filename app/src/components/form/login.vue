@@ -1,23 +1,48 @@
 <template>
-  <form>
-    <div class="form-input">
-      <label for="">Email</label>
-      <input type="email" v-model="email" placeholder="test@jmartz.de" />
+  <form class="">
+    <h2 class="font-bold text-lg mb-6">Login</h2>
+    <div class="mb-6">
+      <label for="email" class="block mb-2 text-sm font-medium text-gray-900"
+        >Your email</label
+      >
+      <input
+        type="email"
+        v-model="email"
+        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+        placeholder="name@flowbite.com"
+      />
     </div>
-    <div class="form-input">
-      <label for="">Password</label>
-      <input type="password" v-model="password" placeholder="test123" />
+    <div class="mb-6">
+      <label class="block mb-2 text-sm font-medium text-gray-900"
+        >Your Password</label
+      >
+      <input
+        type="password"
+        v-model="password"
+        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+        placeholder="password"
+      />
     </div>
-    <div class="form-input">
-      <button @click.prevent="login()">Login</button>
+    <div class="form-input text-right">
+      <button
+        @click.prevent="login()"
+        class="px-2 py-2 bg-gray-50 border border-gray-300 rounded-lg"
+      >
+        Login
+      </button>
     </div>
   </form>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
+import { useUserStore } from "@/store/user";
+import { useRouter } from "vue-router";
+
 let email = ref("");
 let password = ref("");
+let store = useUserStore();
+let router = useRouter();
 
 let login = function () {
   fetch("https://admin.mkay-development.de/api/users/auth-via-email", {
@@ -31,7 +56,8 @@ let login = function () {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      store.login(data.user.id, data.token);
+      router.push("/");
     });
 };
 </script>

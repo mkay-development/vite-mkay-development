@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-6">
+  <div class="grid grid-cols-6 gap-x-5">
     <div class="col-span-6 md:col-span-3">
       <FormLogin />
     </div>
@@ -12,4 +12,15 @@
 <script setup>
 import FormLogin from "@/components/form/login.vue";
 import FormRegister from "@/components/form/register.vue";
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
+
+let router = useRouter();
+
+onMounted(function () {
+  let userid = localStorage.getItem("userid");
+  if (userid) {
+    router.push("/");
+  }
+});
 </script>

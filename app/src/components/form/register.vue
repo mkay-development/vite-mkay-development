@@ -3,35 +3,35 @@
     <h2 class="font-bold text-lg mb-6">Register</h2>
     <div class="mb-6">
       <label for="email" class="block mb-2 text-sm font-medium text-gray-900"
-        >Your email</label
+        >Deine Email Addresse</label
       >
       <input
         type="email"
         v-model="email"
         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-        placeholder="name@flowbite.com"
+        placeholder="test@jmartz.de"
       />
     </div>
     <div class="mb-6">
       <label class="block mb-2 text-sm font-medium text-gray-900"
-        >Your Password</label
+        >Dein Passwort</label
       >
       <input
         type="password"
         v-model="password"
         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-        placeholder="password"
+        placeholder="Passwort"
       />
     </div>
     <div class="mb-6">
       <label class="block mb-2 text-sm font-medium text-gray-900"
-        >Your Password</label
+        >Dein Passwort bestätigen</label
       >
       <input
         type="password"
         v-model="passwordConfirm"
         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-        placeholder="password"
+        placeholder="Passwort bestätigen"
       />
     </div>
     <div class="form-input text-right">

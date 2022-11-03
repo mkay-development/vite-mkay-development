@@ -6,13 +6,13 @@
       </div>
       <div class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/impressum">Projekte</router-link>
-      </div>      
+      </div>
       <div v-if="isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/user/profile">Profile</router-link>
-      </div>    
+      </div>
       <div v-if="!isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/login">Login</router-link>
-      </div>   
+      </div>
       <div class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/kontakt">Anfrage stellen</router-link>
       </div>
@@ -23,6 +23,7 @@
 <script setup>
 import { useNavStore } from "@/store/nav";
 import { useUserStore } from "@/store/user";
+import { storeToRefs } from "pinia";
 
 let store = useNavStore();
 

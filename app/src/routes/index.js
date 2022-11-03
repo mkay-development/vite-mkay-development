@@ -9,7 +9,6 @@ import Kontakt from '@/pages/kontakt.vue';
 import Login from '@/pages/login.vue';
 import Register from '@/pages/register.vue';
 import UserProfile from '@/pages/user/profile.vue';
-import UserLogout from '@/pages/user/logout.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -20,8 +19,7 @@ const routes = [
   { path: '/kontakt', component: Kontakt },
   { path: '/login', component: Login },
   { path: '/register', component: Register },
-  { path: '/user/profile', component: UserProfile },
-  { path: '/user/logout', component: UserLogout },
+  { path: '/user/profile', component: UserProfile }
 ]
 
 export default createRouter({

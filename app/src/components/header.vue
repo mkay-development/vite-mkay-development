@@ -23,9 +23,8 @@
           <router-link to="/login"><fa icon="user" /></router-link>
         </li>
         <li v-if="isLoggedIn">
-          <router-link to="/user/logout"
-            ><fa icon="right-from-bracket"
-          /></router-link>
+          <button @click="userStore.logout()"><fa icon="right-from-bracket"
+          /></button>
         </li>
         <li>
           <router-link to="/kontakt" class="border border-white px-2 py-2"

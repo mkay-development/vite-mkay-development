@@ -22,6 +22,10 @@
 
 <script setup>
 import { useNavStore } from "@/store/nav";
+import { useUserStore } from "@/store/user";
 
 let store = useNavStore();
+
+let userStore = useUserStore();
+let { isLoggedIn } = storeToRefs(userStore);
 </script>

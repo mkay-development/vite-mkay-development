@@ -5,8 +5,8 @@
         <router-link to="/kunden">Kunden</router-link>
       </div>
       <div class="col-span-2 md:col-span-2">
-        <router-link to="/impressum">Impressum</router-link>
-      </div>
+        <router-link to="/impressum">Projekte</router-link>
+      </div>      
       <div class="col-span-2 md:col-span-2">
         <router-link to="/kontakt">Anfrage stellen</router-link>
       </div>

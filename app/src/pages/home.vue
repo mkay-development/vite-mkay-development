@@ -17,10 +17,10 @@
       </p>
     </div>
     <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
-      <section class="card border border-black bg-gray-400">
+      <section class="card border border-black rounded-lg px-2 py-2">
         <img
           :src="'https://admin.mkay-development.de/api/files/'+item['@collectionId']+'/'+item.id+'/'+item.media+'?thumb=160x90'"
-          class="border-b border-b-black w-full"
+          class="w-full"
           alt=""
         />
         <h2 class="px-2 mt-2 font-bold">{{ item.headline }}</h2>

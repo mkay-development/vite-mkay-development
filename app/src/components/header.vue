@@ -14,7 +14,7 @@
           <router-link to="/kunden">Kunden</router-link>
         </li>
         <li>
-          <router-link to="/impressum">Impressum</router-link>
+          <router-link to="/projects">Projekte</router-link>
         </li>
         <li v-if="isLoggedIn">
           <router-link to="/user/profile"><fa icon="user" /></router-link>
@@ -51,8 +51,7 @@ import { onMounted, ref } from "vue";
 let store = useNavStore();
 let { width } = useWindowSize();
 let { open } = storeToRefs(store);
-let userIsLoggedIn = ref(false);
-let userStore = useUserStore();
 
+let userStore = useUserStore();
 let { isLoggedIn } = storeToRefs(userStore);
 </script>

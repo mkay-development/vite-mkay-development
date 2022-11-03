@@ -48,6 +48,7 @@ watch(route, function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
   store.$reset();
   breadcrumbStore.$reset();
+  userStore.check();
   breadcrumbStore.add({
     link: "/",
     label: "Home",

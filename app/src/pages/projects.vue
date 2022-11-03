@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-lg font-bold mb-2 mx-2">Kunden</h2>
+  <h2 class="text-lg font-bold mb-2 mx-2">Projekte</h2>
   <div class="grid grid-cols-6 gap-3">
     <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
       <section class="card border border-black rounded-lg px-2 py-2">

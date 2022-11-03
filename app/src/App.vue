@@ -4,9 +4,9 @@
       <header-general></header-general>
     </header>
     <nav-content class="mx-auto max-w-5x px-2 py-2 bg-white"></nav-content>
-    <main class="mx-auto max-w-5xl bg-white px-2 py-2 mt-2">
+    <main class="mx-auto max-w-5xl bg-white px-2 py-2 mt-2 pb-5">
       <breadcrumb></breadcrumb>
-      <messages>test</messages>
+      <messages></messages>
       <router-view></router-view>
     </main>
     <footer class="mx-auto max-w-5xl px-2 py-2 mt-2">

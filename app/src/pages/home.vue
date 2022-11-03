@@ -17,9 +17,18 @@
       </p>
     </div>
     <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
+      <p class="px-2 py-2 text-center border border-black mb-5 rounded-lg bg-gray-300">{{ item.ad }}</p>
       <section class="card border border-black rounded-lg px-2 py-2">
         <img
-          :src="'https://admin.mkay-development.de/api/files/'+item['@collectionId']+'/'+item.id+'/'+item.media+'?thumb=160x90'"
+          :src="
+            'https://admin.mkay-development.de/api/files/' +
+            item['@collectionId'] +
+            '/' +
+            item.id +
+            '/' +
+            item.media +
+            '?thumb=160x90'
+          "
           class="w-full"
           alt=""
         />

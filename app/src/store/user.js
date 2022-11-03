@@ -19,23 +19,25 @@ export const useUserStore = defineStore("user", {
     },
     check: function () {
       const that = this;
-      fetch(
-        "https://admin.mkay-development.de/api/users/" +
-          localStorage.getItem("userid"),
-        {
-          method: "GET",
-          headers: { Authorization: "User " + localStorage.getItem("token") },
-        }
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          if (data.profile) {
-            that.isLoggedIn = true;
-            that.profile = data.profile;
+      if (localStorage.getItem("token")) {
+        fetch(
+          "https://admin.mkay-development.de/api/users/" +
+            localStorage.getItem("userid"),
+          {
+            method: "GET",
+            headers: { Authorization: "User " + localStorage.getItem("token") },
           }
-        });
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            if (data.profile) {
+              that.isLoggedIn = true;
+              that.profile = data.profile;
+            }
+          });
+      }
     },
     logout: function () {
       this.remove();

@@ -38,8 +38,7 @@ export const useUserStore = defineStore("user", {
         });
     },
     logout: function () {
-      localStorage.removeItem("userid");
-      localStorage.removeItem("token");
+      this.remove();
       this.isLoggedIn = false;
     },
     login: function (id, token) {
@@ -51,6 +50,10 @@ export const useUserStore = defineStore("user", {
     save: function () {
       localStorage.setItem("userid", this.id);
       localStorage.setItem("token", this.token);
+    },
+    remove: function () {
+      localStorage.removeItem("userid");
+      localStorage.removeItem("token");
     },
   },
 });

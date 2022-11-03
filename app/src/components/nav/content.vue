@@ -10,6 +10,9 @@
       <div v-if="isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/user/profile">Profile</router-link>
       </div>
+      <div v-if="isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
+        <router-link to="/logout">Logout</router-link>
+      </div>
       <div v-if="!isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/login">Login</router-link>
       </div>

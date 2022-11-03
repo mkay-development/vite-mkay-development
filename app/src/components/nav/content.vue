@@ -1,13 +1,19 @@
 <template>
   <div v-if="store.open">
-    <div class="grid grid-cols-6 text-center">
-      <div class="col-span-2 md:col-span-2">
+    <div class="grid grid-cols-6 text-center gap-y-3">
+      <div class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/kunden">Kunden</router-link>
       </div>
-      <div class="col-span-2 md:col-span-2">
+      <div class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/impressum">Projekte</router-link>
       </div>      
-      <div class="col-span-2 md:col-span-2">
+      <div v-if="isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
+        <router-link to="/user/profile">Profile</router-link>
+      </div>    
+      <div v-if="!isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
+        <router-link to="/login">Login</router-link>
+      </div>   
+      <div class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/kontakt">Anfrage stellen</router-link>
       </div>
     </div>

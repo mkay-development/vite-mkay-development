@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-6">
-    <div class="col-span-2">
+    <div class="col-span-6 md:col-span-2">
       <section v-if="user" class="card">
         <img
           :src="

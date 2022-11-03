@@ -10,11 +10,16 @@
     <div class="col-span-6 md:col-span-4 md:my-10">
       <h2 class="font-bold mt-4 text-center md:text-left">Jonathan Martz</h2>
       <p class="text-center md:text-left">
-        Als Fullstack Webentwickler entwickel ich vorallem mit PHP & JS. <br />
         Ich habe meine Erfahrung vorallem im Ecommerce gesammelt wo ich
         Onlineshops erstellt und danach betreut habe. Nun entwickel ich
-        Webseiten für kleine Unternehmen.
+        Webseiten für kleine Unternehmen. <br />
+        Als Fullstack Webentwickler entwickel ich vorallem mit PHP & JS.
       </p>
+      <div class="actions">
+        <button @click="router.push('/kontakt')" class="px-2 py-2 bg-gray-100 border border-gray-400  mt-5 rounded-lg">
+          Kontaktiere mich Jetzt
+        </button>
+      </div>
     </div>
     <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
       <section class="card border border-black rounded-lg px-2 py-2">
@@ -43,8 +48,10 @@
 <script setup>
 import { useBackendStore } from "../store/backend";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 let store = useBackendStore();
 let items = ref([]);
+let router = useRouter();
 
 let client = store.init();
 

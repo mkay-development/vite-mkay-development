@@ -15,6 +15,7 @@ import {
   faTrash,
   faUser,
   faRightFromBracket,
+  faEuroSign,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* import font awesome icon component */
@@ -27,7 +28,8 @@ library.add(
   faTimes,
   faUser,
   faRightFromBracket,
-  faTrash
+  faTrash,
+  faEuroSign
 );
 
 import plausible from "./plugins/plausible";

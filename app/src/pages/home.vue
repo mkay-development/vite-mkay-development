@@ -4,11 +4,11 @@
       <img
         src="https://avatars.githubusercontent.com/u/20771653?v=4"
         alt="Profilebild Jonathan"
-        class="w-32 rounded-full mx-auto"
+        class="w-32 mx-auto rounded-full"
       />
     </div>
     <div class="col-span-6 md:col-span-4 md:my-10">
-      <h2 class="font-bold mt-4 text-center md:text-left">Jonathan Martz</h2>
+      <h2 class="mt-4 font-bold text-center md:text-left">Jonathan Martz</h2>
       <p class="text-center md:text-left">
         Ich habe meine Erfahrung vorallem im Ecommerce gesammelt wo ich
         Onlineshops erstellt und danach betreut habe. Nun entwickel ich
@@ -16,13 +16,13 @@
         Als Fullstack Webentwickler entwickel ich vorallem mit PHP & JS.
       </p>
       <div class="actions">
-        <button @click="router.push('/kontakt')" class="px-2 py-2 bg-gray-100 border border-gray-400  mt-5 rounded-lg">
+        <button @click="router.push('/kontakt')" class="px-2 py-2 mt-5 bg-gray-100 border border-gray-400 rounded-lg">
           Kontaktiere mich Jetzt
         </button>
       </div>
     </div>
     <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
-      <section class="card border border-black rounded-lg px-2 py-2">
+      <section class="px-2 py-2 border border-black rounded-lg card">
         <img
           :src="
             'https://admin.mkay-development.de/api/files/' +
@@ -49,6 +49,7 @@
 import { useBackendStore } from "../store/backend";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+
 let store = useBackendStore();
 let items = ref([]);
 let router = useRouter();

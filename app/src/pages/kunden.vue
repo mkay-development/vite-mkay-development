@@ -1,13 +1,13 @@
 <template>
-    <h2 class="text-lg font-bold mb-2 mx-2">Kunden</h2>
+    <h2 class="mx-2 mb-2 text-lg font-bold">Kunden</h2>
     <div class="grid grid-cols-6 gap-3">
       <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
-        <section class="card border border-black rounded-lg px-2 py-2">
+        <section class="px-2 py-2 border border-black rounded-lg card">
           <a :href="item.link" target="_blank">
             <img
               :src="
                 'https://admin.mkay-development.de/api/files/' +
-                item['@collectionId'] +
+                item['collectionId'] +
                 '/' +
                 item.id +
                 '/' +
@@ -21,11 +21,11 @@
           <p class="px-2">
             {{ item.desc }}
           </p>
-          <div class="tags mt-3">
+          <div class="mt-3 tags">
             <ul class="flex">
               <li
                 v-for="(skill, index) in item.tags"
-                class="bg-gray-50 border border-gray-300 rounded-lg px-2 py-2 mx-2"
+                class="px-2 py-2 mx-2 border border-gray-300 rounded-lg bg-gray-50"
               >
                 {{ skill }}
               </li>
@@ -54,13 +54,16 @@ onMounted(function () {
   load();
 });
 
-const load = function () {
-  const client = store.init();
-
-  const result = client.records.getList('customer', 1, 50, {});
-
-  result.then(function (data) {
-    items.value = data.items.reverse();
-  });
+  const load = function () {
+  fetch('https://admin.mkay-development.de/api/collections/customer/records', {
+    method: 'GET',
+    headers: { Authorization: 'User ' + localStorage.getItem('token') }
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      items.value = data.items;
+    });
 };
 </script>

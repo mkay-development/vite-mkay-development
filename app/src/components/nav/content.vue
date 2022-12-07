@@ -5,7 +5,7 @@
         <router-link to="/kunden">Kunden</router-link>
       </div>
       <div class="col-span-3 sm:col-span-2 md:col-span-2">
-        <router-link to="/impressum">Projekte</router-link>
+        <router-link to="/projects">Projekte</router-link>
       </div>
       <div v-if="isLoggedIn" class="col-span-3 sm:col-span-2 md:col-span-2">
         <router-link to="/user/profile">Profile</router-link>

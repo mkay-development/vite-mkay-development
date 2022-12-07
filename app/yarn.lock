@@ -2407,10 +2407,10 @@ plausible-tracker@^0.3.5:
   resolved "https://registry.yarnpkg.com/plausible-tracker/-/plausible-tracker-0.3.8.tgz#9b8b322cc41e0e1d6473869ef234deea365a5a40"
   integrity sha512-lmOWYQ7s9KOUJ1R+YTOR3HrjdbxIS2Z4de0P/Jx2dQPteznJl2eX3tXxKClpvbfyGP59B5bbhW8ftN59HbbFSg==
 
-pocketbase@^0.7:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.7.4.tgz#2ca1fe03215ec278ae7239ef63befb4c002d9ad9"
-  integrity sha512-PvBRi4hbgbiBwDjhHa9lGD/ala8dSTjKeNAsHAgsXdIo4v9RgCk2s3Zqd/4UXVBgTJHVM6F7fGOZPvvJfSNVLQ==
+pocketbase@^0.8:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.8.3.tgz#dc39e089f3a7131143e7a5891dbc304b91fa75de"
+  integrity sha512-B1ed44QM6iEeu007br86sDB/QGoMZXPQkujVk4p37q/WIFM0HvIDnffqTbz7oyaE6Sf8t5lNT3Mc2jVIvdxfXQ==
 
 postcss-import@^14.1.0:
   version "14.1.0"

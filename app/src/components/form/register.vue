@@ -46,15 +46,15 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useMessageStore } from '@/store/messages'
-import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue';
+import { useMessageStore } from '@/store/messages';
+import { useRouter } from 'vue-router';
 
-const email = ref('')
-const password = ref('')
-const passwordConfirm = ref('')
-const store = useMessageStore()
-const router = useRouter()
+const email = ref('');
+const password = ref('');
+const passwordConfirm = ref('');
+const store = useMessageStore();
+const router = useRouter();
 
 const register = function () {
   fetch('https://admin.mkay-development.de/api/users', {
@@ -69,17 +69,17 @@ const register = function () {
     })
   })
     .then(function (response) {
-      return response.json()
+      return response.json();
     })
     .then(function (data) {
       if (data.code == 400) {
         store.add({
           message: 'Es gab einen Fehler bei der Anfrage',
           status: 'warning'
-        })
+        });
       } else {
-        router.push('/login')
+        router.push('/login');
       }
-    })
-}
+    });
+};
 </script>

@@ -41,15 +41,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useBreadcrumbStore } from '@/store/breadcrumb'
-const breadcrumbStore = useBreadcrumbStore()
+import { ref } from 'vue';
+import { useBreadcrumbStore } from '@/store/breadcrumb';
+const breadcrumbStore = useBreadcrumbStore();
 const kunden = ref([{
   pic: ''
-}])
+}]);
 
 breadcrumbStore.add({
   link: '/services',
   label: 'Services'
-})
+});
 </script>

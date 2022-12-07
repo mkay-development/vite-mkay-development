@@ -119,11 +119,11 @@
 </template>
 
 <script setup>
-import { useBreadcrumbStore } from '@/store/breadcrumb'
-const breadcrumbStore = useBreadcrumbStore()
+import { useBreadcrumbStore } from '@/store/breadcrumb';
+const breadcrumbStore = useBreadcrumbStore();
 
 breadcrumbStore.add({
   link: '/impressum',
   label: 'Impressum'
-})
+});
 </script>

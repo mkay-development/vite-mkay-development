@@ -35,14 +35,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useUserStore } from '@/store/user'
-import { useRouter } from 'vue-router'
+import { ref } from 'vue';
+import { useUserStore } from '@/store/user';
+import { useRouter } from 'vue-router';
 
-const email = ref('')
-const password = ref('')
-const store = useUserStore()
-const router = useRouter()
+const email = ref('');
+const password = ref('');
+const store = useUserStore();
+const router = useRouter();
 
 const login = function () {
   fetch('https://admin.mkay-development.de/api/users/auth-via-email', {
@@ -53,11 +53,11 @@ const login = function () {
     body: JSON.stringify({ email: email.value, password: password.value })
   })
     .then(function (response) {
-      return response.json()
+      return response.json();
     })
     .then(function (data) {
-      store.login(data.user.id, data.token)
-      router.push('/')
-    })
-}
+      store.login(data.user.id, data.token);
+      router.push('/');
+    });
+};
 </script>

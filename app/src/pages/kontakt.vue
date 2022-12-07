@@ -67,19 +67,19 @@
   </div>
 </template>
 <script setup>
-import { useBreadcrumbStore } from '@/store/breadcrumb'
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-const breadcrumbStore = useBreadcrumbStore()
-const name = ref('')
-const email = ref('')
-const message = ref('')
-const router = useRouter()
+import { useBreadcrumbStore } from '@/store/breadcrumb';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const breadcrumbStore = useBreadcrumbStore();
+const name = ref('');
+const email = ref('');
+const message = ref('');
+const router = useRouter();
 
 breadcrumbStore.add({
   link: '/kontakt',
   label: 'Kontakt'
-})
+});
 
 const send = function () {
   fetch('https://admin.mkay-development.de/api/collections/kontakt/records', {
@@ -94,12 +94,12 @@ const send = function () {
     })
   })
     .then(function (response) {
-      return response.json()
+      return response.json();
     })
     .then(function (data) {
       if (data.id) {
-        router.push('/')
+        router.push('/');
       }
-    })
-}
+    });
+};
 </script>

@@ -25,19 +25,19 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { useBackendStore } from '../../store/backend'
-import { useUserStore } from '../../store/user'
+import { onMounted, ref } from 'vue';
+import { useBackendStore } from '../../store/backend';
+import { useUserStore } from '../../store/user';
 
-const store = useBackendStore()
-const userStore = useUserStore()
-const user = ref({})
+const store = useBackendStore();
+const userStore = useUserStore();
+const user = ref({});
 
-const client = store.init()
+const client = store.init();
 
 onMounted(function () {
-  load()
-})
+  load();
+});
 
 const load = function () {
   fetch(
@@ -49,12 +49,12 @@ const load = function () {
     }
   )
     .then(function (response) {
-      return response.json()
+      return response.json();
     })
     .then(function (data) {
       if (data.profile) {
-        user.value = data.profile
+        user.value = data.profile;
       }
-    })
-}
+    });
+};
 </script>

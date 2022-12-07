@@ -17,16 +17,16 @@
 </template>
 
 <script setup>
-import FormLogin from '@/components/form/login.vue'
-import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import FormLogin from '@/components/form/login.vue';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
-const router = useRouter()
+const router = useRouter();
 
 onMounted(function () {
-  const userid = localStorage.getItem('userid')
+  const userid = localStorage.getItem('userid');
   if (userid) {
-    router.push('/')
+    router.push('/');
   }
-})
+});
 </script>

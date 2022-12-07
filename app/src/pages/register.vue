@@ -7,16 +7,16 @@
 </template>
 
 <script setup>
-import FormRegister from '@/components/form/register.vue'
-import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import FormRegister from '@/components/form/register.vue';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
-const router = useRouter()
+const router = useRouter();
 
 onMounted(function () {
-  const userid = localStorage.getItem('userid')
+  const userid = localStorage.getItem('userid');
   if (userid) {
-    router.push('/')
+    router.push('/');
   }
-})
+});
 </script>

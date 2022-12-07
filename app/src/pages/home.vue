@@ -29,7 +29,7 @@
         <img
           :src="
             'https://admin.mkay-development.de/api/files/' +
-            item['@collectionId'] +
+            item['collectionId'] +
             '/' +
             item.id +
             '/' +
@@ -49,13 +49,11 @@
 </template>
 
 <script setup>
-import { useBackendStore } from '../store/backend'
-import { onMounted, ref } from 'vue'
-import { loadRouteLocation, useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const store = useBackendStore()
-const items = ref([])
-const router = useRouter()
+const items = ref([]);
+const router = useRouter();
 
 const load = function () {
   fetch('https://admin.mkay-development.de/api/collections/services/records', {
@@ -63,14 +61,14 @@ const load = function () {
     headers: { Authorization: 'User ' + localStorage.getItem('token') }
   })
     .then(function (response) {
-      return response.json()
+      return response.json();
     })
     .then(function (data) {
-      items.value = data.items
-    })
-}
+      items.value = data.items;
+    });
+};
 
 onMounted(function () {
-  load()
-})
+  load();
+});
 </script>

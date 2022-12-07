@@ -15,45 +15,45 @@
   </div>
 </template>
 <script setup>
-import headerGeneral from './components/header.vue'
-import footerGeneral from './components/footer.vue'
-import navContent from './components/nav/content.vue'
-import breadcrumb from './components/breadcrumb.vue'
-import Messages from './components/messages.vue'
-import { useRoute } from 'vue-router'
-import { useNavStore } from './store/nav'
+import headerGeneral from './components/header.vue';
+import footerGeneral from './components/footer.vue';
+import navContent from './components/nav/content.vue';
+import breadcrumb from './components/breadcrumb.vue';
+import Messages from './components/messages.vue';
+import { useRoute } from 'vue-router';
+import { useNavStore } from './store/nav';
 
-import './tailwind.css'
-import { watch, onMounted } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useBreadcrumbStore } from '@/store/breadcrumb'
-import { useMessageStore } from './store/messages'
-import { useUserStore } from './store/user'
+import './tailwind.css';
+import { watch, onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useBreadcrumbStore } from '@/store/breadcrumb';
+import { useMessageStore } from './store/messages';
+import { useUserStore } from './store/user';
 
-const route = useRoute()
-const store = useNavStore()
-const breadcrumbStore = useBreadcrumbStore()
-const { items } = storeToRefs(breadcrumbStore)
+const route = useRoute();
+const store = useNavStore();
+const breadcrumbStore = useBreadcrumbStore();
+const { items } = storeToRefs(breadcrumbStore);
 
-const messageStore = useMessageStore()
-const { messages } = storeToRefs(messageStore)
+const messageStore = useMessageStore();
+const { messages } = storeToRefs(messageStore);
 
-const userStore = useUserStore()
+const userStore = useUserStore();
 
 onMounted(function () {
-  userStore.init()
-})
+  userStore.init();
+});
 
 watch(route, function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-  store.$reset()
-  breadcrumbStore.$reset()
-  userStore.check()
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  store.$reset();
+  breadcrumbStore.$reset();
+  userStore.check();
   breadcrumbStore.add({
     link: '/',
     label: 'Home'
-  })
-})
+  });
+});
 </script>
 
 <style lang="less">

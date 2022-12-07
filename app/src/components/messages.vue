@@ -18,10 +18,10 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia'
-import { useMessageStore } from '../store/messages'
+import { storeToRefs } from 'pinia';
+import { useMessageStore } from '../store/messages';
 
-const store = useMessageStore()
+const store = useMessageStore();
 
-const { messages } = storeToRefs(store)
+const { messages } = storeToRefs(store);
 </script>

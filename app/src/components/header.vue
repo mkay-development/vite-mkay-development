@@ -41,16 +41,16 @@
 </template>
 
 <script setup>
-import { useUserStore } from '@/store/user'
-import { useNavStore } from '@/store/nav'
-import { useWindowSize } from '@vueuse/core'
-import { storeToRefs } from 'pinia'
-import { onMounted, ref } from 'vue'
+import { useUserStore } from '@/store/user';
+import { useNavStore } from '@/store/nav';
+import { useWindowSize } from '@vueuse/core';
+import { storeToRefs } from 'pinia';
+import { onMounted, ref } from 'vue';
 
-const store = useNavStore()
-const { width } = useWindowSize()
-const { open } = storeToRefs(store)
+const store = useNavStore();
+const { width } = useWindowSize();
+const { open } = storeToRefs(store);
 
-const userStore = useUserStore()
-const { isLoggedIn } = storeToRefs(userStore)
+const userStore = useUserStore();
+const { isLoggedIn } = storeToRefs(userStore);
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-6">
     <div class="col-span-6 md:col-span-3">
-      <h2 class="font-bold text-xl">Kontakt</h2>
+      <h2 class="text-xl font-bold">Kontakt</h2>
       <p>
         Ihr habt einen Wunsch nach einer neuen Webseite oder andere Fragen ?
         Dann kontaktiert und einfach per mail an
@@ -13,12 +13,12 @@
         >
         oder per Kontaktformular auf der rechten Seite.
       </p>
-      <h3 class="font-bold text-xl mt-10 text-center">
+      <h3 class="mt-10 text-xl font-bold text-center">
         Zur Verfügung steht ihnen
       </h3>
       <img
         src="https://avatars.githubusercontent.com/u/20771653?v=4"
-        class="rounded-full w-32 mx-auto my-5"
+        class="w-32 mx-auto my-5 rounded-full"
         alt=""
       />
       <p class="text-center">
@@ -28,37 +28,37 @@
       </p>
     </div>
     <div class="col-span-6 md:col-span-3">
-      <div class="form space-y-3">
+      <div class="space-y-3 form">
         <div class="form-group">
-          <label class="w-full block px-2 py-2" for="">Name</label>
+          <label class="block w-full px-2 py-2" for="">Name</label>
           <input
             type="text"
-            class="px-2 py-2 w-full bg-gray-100"
+            class="w-full px-2 py-2 bg-gray-100"
             placeholder="Jonathan Martz"
             v-model="name"
           />
         </div>
         <div class="form-group">
-          <label class="w-full block px-2 py-2" for="">Email</label>
+          <label class="block w-full px-2 py-2" for="">Email</label>
           <input
             type="email"
-            class="px-2 py-2 w-full bg-gray-100"
+            class="w-full px-2 py-2 bg-gray-100"
             placeholder="mail@jmartz.de"
             v-model="email"
           />
         </div>
         <div class="form-group">
-          <label class="w-full block px-2 py-2" for="">Email</label>
+          <label class="block w-full px-2 py-2" for="">Email</label>
           <textarea
             cols="10"
             v-model="message"
             rows="6"
-            class="px-2 py-2 w-full bg-gray-100"
+            class="w-full px-2 py-2 bg-gray-100"
             placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint suscipit provident architecto molestiae nemo, repudiandae dignissimos, a aut earum expedita eveniet, modi eum culpa possimus? Eveniet minus repudiandae laudantium pariatur!"
           ></textarea>
         </div>
-        <div class="form-group text-right">
-          <button @click="send()" class="bg-gray-200 px-2 py-2">
+        <div class="text-right form-group">
+          <button @click="send()" class="px-2 py-2 bg-gray-200">
             Abschicken
           </button>
         </div>

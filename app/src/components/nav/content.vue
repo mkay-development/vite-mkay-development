@@ -24,12 +24,12 @@
 </template>
 
 <script setup>
-import { useNavStore } from "@/store/nav";
-import { useUserStore } from "@/store/user";
-import { storeToRefs } from "pinia";
+import { useNavStore } from '@/store/nav'
+import { useUserStore } from '@/store/user'
+import { storeToRefs } from 'pinia'
 
-let store = useNavStore();
+const store = useNavStore()
 
-let userStore = useUserStore();
-let { isLoggedIn } = storeToRefs(userStore);
+const userStore = useUserStore()
+const { isLoggedIn } = storeToRefs(userStore)
 </script>

@@ -1,10 +1,10 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import routes from "./routes";
-import { createPinia } from "pinia";
+import { createApp } from 'vue'
+import App from './App.vue'
+import routes from './routes'
+import { createPinia } from 'pinia'
 
 /* import the fontawesome core */
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import specific icons */
 import {
@@ -15,11 +15,13 @@ import {
   faTrash,
   faUser,
   faRightFromBracket,
-  faEuroSign,
-} from "@fortawesome/free-solid-svg-icons";
+  faEuroSign
+} from '@fortawesome/free-solid-svg-icons'
 
 /* import font awesome icon component */
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+import plausible from './plugins/plausible'
 
 library.add(
   faEdit,
@@ -30,21 +32,19 @@ library.add(
   faRightFromBracket,
   faTrash,
   faEuroSign
-);
-
-import plausible from "./plugins/plausible";
+)
 
 const plausibleOptions = {
-  domain: "www.mkay-development.de",
-  apiHost: "https://tracking.jmartz.gmbh",
+  domain: 'www.mkay-development.de',
+  apiHost: 'https://tracking.jmartz.gmbh',
   hashMode: false,
-  trackLocalhost: false,
-};
+  trackLocalhost: false
+}
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(plausible, plausibleOptions);
-app.component("fa", FontAwesomeIcon);
-app.use(routes);
-app.use(createPinia());
-app.mount("#app");
+app.use(plausible, plausibleOptions)
+app.component('fa', FontAwesomeIcon)
+app.use(routes)
+app.use(createPinia())
+app.mount('#app')

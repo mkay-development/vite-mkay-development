@@ -35,29 +35,29 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useUserStore } from "@/store/user";
-import { useRouter } from "vue-router";
+import { ref } from 'vue'
+import { useUserStore } from '@/store/user'
+import { useRouter } from 'vue-router'
 
-let email = ref("");
-let password = ref("");
-let store = useUserStore();
-let router = useRouter();
+const email = ref('')
+const password = ref('')
+const store = useUserStore()
+const router = useRouter()
 
-let login = function () {
-  fetch("https://admin.mkay-development.de/api/users/auth-via-email", {
-    method: "POST",
+const login = function () {
+  fetch('https://admin.mkay-development.de/api/users/auth-via-email', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ email: email.value, password: password.value }),
+    body: JSON.stringify({ email: email.value, password: password.value })
   })
     .then(function (response) {
-      return response.json();
+      return response.json()
     })
     .then(function (data) {
-      store.login(data.user.id, data.token);
-      router.push("/");
-    });
-};
+      store.login(data.user.id, data.token)
+      router.push('/')
+    })
+}
 </script>

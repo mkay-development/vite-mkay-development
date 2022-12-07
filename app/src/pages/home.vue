@@ -16,7 +16,10 @@
         Als Fullstack Webentwickler entwickel ich vorallem mit PHP & JS.
       </p>
       <div class="actions">
-        <button @click="router.push('/kontakt')" class="px-2 py-2 mt-5 bg-gray-100 border border-gray-400 rounded-lg">
+        <button
+          @click="router.push('/kontakt')"
+          class="px-2 py-2 mt-5 bg-gray-100 border border-gray-400 rounded-lg"
+        >
           Kontaktiere mich Jetzt
         </button>
       </div>
@@ -46,19 +49,28 @@
 </template>
 
 <script setup>
-import { useBackendStore } from "../store/backend";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useBackendStore } from '../store/backend'
+import { onMounted, ref } from 'vue'
+import { loadRouteLocation, useRouter } from 'vue-router'
 
-let store = useBackendStore();
-let items = ref([]);
-let router = useRouter();
+const store = useBackendStore()
+const items = ref([])
+const router = useRouter()
 
-let client = store.init();
+const load = function () {
+  fetch('https://admin.mkay-development.de/api/collections/services/records', {
+    method: 'GET',
+    headers: { Authorization: 'User ' + localStorage.getItem('token') }
+  })
+    .then(function (response) {
+      return response.json()
+    })
+    .then(function (data) {
+      items.value = data.items
+    })
+}
 
-const resultList = client.records.getList("services", 1, 50, {});
-
-resultList.then(function (data) {
-  items.value = data.items;
-});
+onMounted(function () {
+  load()
+})
 </script>

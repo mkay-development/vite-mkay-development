@@ -46,41 +46,40 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import { useMessageStore } from "@/store/messages";
-import { useRouter} from 'vue-router'
+import { onMounted, ref } from 'vue'
+import { useMessageStore } from '@/store/messages'
+import { useRouter } from 'vue-router'
 
-let email = ref("");
-let password = ref("");
-let passwordConfirm = ref("");
-let store = useMessageStore();
-let router = useRouter();
+const email = ref('')
+const password = ref('')
+const passwordConfirm = ref('')
+const store = useMessageStore()
+const router = useRouter()
 
-let register = function () {
-  fetch("https://admin.mkay-development.de/api/users", {
-    method: "POST",
+const register = function () {
+  fetch('https://admin.mkay-development.de/api/users', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       email: email.value,
       password: password.value,
-      passwordConfirm: passwordConfirm.value,
-    }),
+      passwordConfirm: passwordConfirm.value
+    })
   })
     .then(function (response) {
-      return response.json();
+      return response.json()
     })
     .then(function (data) {
       if (data.code == 400) {
         store.add({
-          message: "Es gab einen Fehler bei der Anfrage",
-          status: "warning",
-        });
+          message: 'Es gab einen Fehler bei der Anfrage',
+          status: 'warning'
+        })
+      } else {
+        router.push('/login')
       }
-      else {
-        router.push('/login');
-      }
-    });
-};
+    })
+}
 </script>

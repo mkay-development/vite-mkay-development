@@ -37,30 +37,30 @@
 </template>
 
 <script setup>
-import { useBackendStore } from "../store/backend";
-import { onMounted, ref } from "vue";
-import { useBreadcrumbStore } from "@/store/breadcrumb";
+import { useBackendStore } from '../store/backend'
+import { onMounted, ref } from 'vue'
+import { useBreadcrumbStore } from '@/store/breadcrumb'
 
-let store = useBackendStore();
-let items = ref([]);
-let breadcrumbStore = useBreadcrumbStore();
+const store = useBackendStore()
+const items = ref([])
+const breadcrumbStore = useBreadcrumbStore()
 
 breadcrumbStore.add({
-  link: "/projects",
-  label: "Projects",
-});
+  link: '/projects',
+  label: 'Projects'
+})
 
 onMounted(function () {
-  load();
-});
+  load()
+})
 
-let load = function () {
-  let client = store.init();
+const load = function () {
+  const client = store.init()
 
-  const result = client.records.getList("projects", 1, 50, {});
+  const result = client.records.getList('projects', 1, 50, {})
 
   result.then(function (data) {
-    items.value = data.items.reverse();
-  });
-};
+    items.value = data.items.reverse()
+  })
+}
 </script>

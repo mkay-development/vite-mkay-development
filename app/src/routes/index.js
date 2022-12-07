@@ -1,14 +1,14 @@
-import {createWebHistory, createRouter} from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 
-import Home from '@/pages/home.vue';
-import Impressum from '@/pages/impressum.vue';
-import Kunden from '@/pages/kunden.vue';
-import Projects from '@/pages/projects.vue';
-import Services from '@/pages/services.vue';
-import Kontakt from '@/pages/kontakt.vue';
-import Login from '@/pages/login.vue';
-import Register from '@/pages/register.vue';
-import UserProfile from '@/pages/user/profile.vue';
+import Home from '@/pages/home.vue'
+import Impressum from '@/pages/impressum.vue'
+import Kunden from '@/pages/kunden.vue'
+import Projects from '@/pages/projects.vue'
+import Services from '@/pages/services.vue'
+import Kontakt from '@/pages/kontakt.vue'
+import Login from '@/pages/login.vue'
+import Register from '@/pages/register.vue'
+import UserProfile from '@/pages/user/profile.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -24,5 +24,5 @@ const routes = [
 
 export default createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 })

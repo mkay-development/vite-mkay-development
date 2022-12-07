@@ -13,11 +13,11 @@ from 'pinia';
 </template>
 
 <script setup>
-import { useBreadcrumbStore } from "@/store/breadcrumb";
-import { storeToRefs } from "pinia";
+import { useBreadcrumbStore } from '@/store/breadcrumb'
+import { storeToRefs } from 'pinia'
 
-let store = useBreadcrumbStore();
-let { items } = storeToRefs(store);
+const store = useBreadcrumbStore()
+const { items } = storeToRefs(store)
 </script>
 
 <style lang="less" scoped>

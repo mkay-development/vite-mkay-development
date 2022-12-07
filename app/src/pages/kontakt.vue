@@ -67,39 +67,39 @@
   </div>
 </template>
 <script setup>
-import { useBreadcrumbStore } from "@/store/breadcrumb";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-let breadcrumbStore = useBreadcrumbStore();
-let name = ref("");
-let email = ref("");
-let message = ref("");
-let router = useRouter();
+import { useBreadcrumbStore } from '@/store/breadcrumb'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+const breadcrumbStore = useBreadcrumbStore()
+const name = ref('')
+const email = ref('')
+const message = ref('')
+const router = useRouter()
 
 breadcrumbStore.add({
-  link: "/kontakt",
-  label: "Kontakt",
-});
+  link: '/kontakt',
+  label: 'Kontakt'
+})
 
-let send = function () {
-  fetch("https://admin.mkay-development.de/api/collections/kontakt/records", {
-    method: "POST",
+const send = function () {
+  fetch('https://admin.mkay-development.de/api/collections/kontakt/records', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       name: name.value,
       email: email.value,
-      message: message.value,
-    }),
+      message: message.value
+    })
   })
     .then(function (response) {
-      return response.json();
+      return response.json()
     })
     .then(function (data) {
       if (data.id) {
-        router.push("/");
+        router.push('/')
       }
-    });
-};
+    })
+}
 </script>

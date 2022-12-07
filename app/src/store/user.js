@@ -1,61 +1,61 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore("user", {
-  state() {
+export const useUserStore = defineStore('user', {
+  state () {
     return {
-      id: "",
-      token: "",
+      id: '',
+      token: '',
       isLoggedIn: false,
-      profile: {},
-    };
+      profile: {}
+    }
   },
   actions: {
     init: function () {
-      let userid = localStorage.getItem("userid");
-      let token = localStorage.getItem("token");
+      const userid = localStorage.getItem('userid')
+      const token = localStorage.getItem('token')
       if (userid && token) {
-        this.login(userid, token);
+        this.login(userid, token)
       }
     },
     check: function () {
-      const that = this;
-      if (localStorage.getItem("token")) {
+      const that = this
+      if (localStorage.getItem('token')) {
         fetch(
-          "https://admin.mkay-development.de/api/users/" +
-            localStorage.getItem("userid"),
+          'https://admin.mkay-development.de/api/users/' +
+            localStorage.getItem('userid'),
           {
-            method: "GET",
-            headers: { Authorization: "User " + localStorage.getItem("token") },
+            method: 'GET',
+            headers: { Authorization: 'User ' + localStorage.getItem('token') }
           }
         )
           .then(function (response) {
-            return response.json();
+            return response.json()
           })
           .then(function (data) {
             if (data.profile) {
-              that.isLoggedIn = true;
-              that.profile = data.profile;
+              that.isLoggedIn = true
+              that.profile = data.profile
             }
-          });
+          })
       }
     },
     logout: function () {
-      this.remove();
-      this.isLoggedIn = false;
+      this.remove()
+      this.isLoggedIn = false
     },
     login: function (id, token) {
-      this.id = id;
-      this.token = token;
-      this.isLoggedIn = true;
-      this.save();
+      this.id = id
+      this.token = token
+      this.isLoggedIn = true
+      this.save()
     },
     save: function () {
-      localStorage.setItem("userid", this.id);
-      localStorage.setItem("token", this.token);
+      localStorage.setItem('userid', this.id)
+      localStorage.setItem('token', this.token)
     },
     remove: function () {
-      localStorage.removeItem("userid");
-      localStorage.removeItem("token");
-    },
-  },
-});
+      localStorage.removeItem('userid')
+      localStorage.removeItem('token')
+    }
+  }
+})

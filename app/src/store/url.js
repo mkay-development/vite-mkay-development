@@ -1,10 +1,10 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useUrlStore = defineStore("url", {
-  state() {
+export const useUrlStore = defineStore('url', {
+  state () {
     return {
-      baseurl: "http://www.mkay-web-dev",
-    };
+      baseurl: 'http://www.mkay-web-dev'
+    }
   },
-  actions: {},
-});
+  actions: {}
+})

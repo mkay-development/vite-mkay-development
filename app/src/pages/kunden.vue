@@ -35,33 +35,32 @@
       </div>
     </div>
   </template>
-  
-  <script setup>
-  import { useBackendStore } from "../store/backend";
-  import { onMounted, ref } from "vue";
-  import { useBreadcrumbStore } from "@/store/breadcrumb";
-  
-  let store = useBackendStore();
-  let items = ref([]);
-  let breadcrumbStore = useBreadcrumbStore();
-  
-  breadcrumbStore.add({
-    link: "/kunden",
-    label: "Kunden",
-  });
-  
-  onMounted(function () {
-    load();
-  });
-  
-  let load = function () {
-    let client = store.init();
-  
-    const result = client.records.getList("customer", 1, 50, {});
-  
-    result.then(function (data) {
-      items.value = data.items.reverse();
-    });
-  };
-  </script>
-  
+
+<script setup>
+import { useBackendStore } from '../store/backend'
+import { onMounted, ref } from 'vue'
+import { useBreadcrumbStore } from '@/store/breadcrumb'
+
+const store = useBackendStore()
+const items = ref([])
+const breadcrumbStore = useBreadcrumbStore()
+
+breadcrumbStore.add({
+  link: '/kunden',
+  label: 'Kunden'
+})
+
+onMounted(function () {
+  load()
+})
+
+const load = function () {
+  const client = store.init()
+
+  const result = client.records.getList('customer', 1, 50, {})
+
+  result.then(function (data) {
+    items.value = data.items.reverse()
+  })
+}
+</script>

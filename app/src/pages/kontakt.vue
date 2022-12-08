@@ -58,7 +58,7 @@
           ></textarea>
         </div>
         <div class="text-right form-group">
-          <button @click="send()" class="px-2 py-2 bg-gray-200">
+          <button @click="send()" class="px-3 py-3 text-white bg-gray-400 rounded-lg">
             Abschicken
           </button>
         </div>

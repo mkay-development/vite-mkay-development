@@ -18,7 +18,7 @@
       <div class="actions">
         <button
           @click="router.push('/kontakt')"
-          class="px-2 py-2 mt-5 bg-gray-100 border border-gray-400 rounded-lg"
+          class="px-3 py-3 mt-5 text-white bg-[#1f6fed]"
         >
           Kontaktiere mich Jetzt
         </button>

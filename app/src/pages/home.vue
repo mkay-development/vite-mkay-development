@@ -27,6 +27,7 @@
     <div v-for="(item, index) in items" class="col-span-6 md:col-span-2">
       <section class="px-2 py-2 border border-black rounded-lg card">
         <img
+          v-if="item.media"
           :src="
             'https://admin.mkay-development.de/api/files/' +
             item['collectionId'] +
@@ -49,16 +50,16 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const items = ref([]);
 const router = useRouter();
 
 const load = function () {
-  fetch('https://admin.mkay-development.de/api/collections/services/records', {
-    method: 'GET',
-    headers: { Authorization: 'User ' + localStorage.getItem('token') }
+  fetch("https://admin.mkay-development.de/api/collections/services/records", {
+    method: "GET",
+    headers: { Authorization: "User " + localStorage.getItem("token") },
   })
     .then(function (response) {
       return response.json();

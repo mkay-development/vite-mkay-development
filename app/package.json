@@ -18,7 +18,7 @@
     "less-loader": "^11.0",
     "pinia": "^2.0",
     "plausible-tracker": "^0.3",
-    "pocketbase": "^0.8",
+    "pocketbase": "^0.15",
     "vue": "^3.2",
     "vue-router": "^4.0"
   },
